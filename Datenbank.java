@@ -23,7 +23,7 @@ public class Datenbank {
 	// erstellt neue CSV-Datei mit Headerbezeichungen
 	public void erstelleCSVFile() {
 		// Festlegen des Speicherorts
-		File file = new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv");
+		File file = new File("Kunden.csv");
         // Prüfen, ob DB vorhanden ist. Falls nein, dann neue DB erstellen und Spaltenbezeichnungen in erste Zeile schreiben
 		if(!file.exists() && !file.isDirectory()){
         	try (PrintWriter writer = new PrintWriter(new File("Kunden.csv"))) {
