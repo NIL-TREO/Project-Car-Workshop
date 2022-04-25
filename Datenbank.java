@@ -15,7 +15,7 @@ import java.util.Scanner;
 // Klasse Datenbank erzeugt Eintrag in CSV-Datei mit Titel "Kunden"
 public class Datenbank {
 		
-	// Aufruf des Konstruktors führt direkt Methode erstelleCSVFile() aus
+	// Aufruf des Konstruktors fÃ¼hrt direkt Methode erstelleCSVFile() aus
 	public Datenbank() {
 		erstelleCSVFile();
 	}
@@ -23,10 +23,10 @@ public class Datenbank {
 	// erstellt neue CSV-Datei mit Headerbezeichungen
 	public void erstelleCSVFile() {
 		// Festlegen des Speicherorts
-		File file = new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv");
-        // Prüfen, ob DB vorhanden ist. Falls nein, dann neue DB erstellen und Spaltenbezeichnungen in erste Zeile schreiben
+		File file = new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Ãœbungen\\src\\Werkstatt\\Kunden.csv");
+        // PrÃ¼fen, ob DB vorhanden ist. Falls nein, dann neue DB erstellen und Spaltenbezeichnungen in erste Zeile schreiben
 		if(!file.exists() && !file.isDirectory()){
-        	try (PrintWriter writer = new PrintWriter(new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv"))) {
+        	try (PrintWriter writer = new PrintWriter(new File("Kunden.csv"))) {
     			StringBuilder sb = new StringBuilder();
     	         // Spaltenbezeichnungen in neue CSV schreiben
     			 sb.append("Name");
@@ -52,15 +52,15 @@ public class Datenbank {
         } else {
         	System.out.println("Datei bereits vorhanden in Pfad:\n" + file);
         }
-		schreibeDatensätzeinDB();
+		schreibeDatensÃ¤tzeinDB();
 	}
 	
-	// Schreibt neuen Kundendatensatz aus Klasse Auftrag in neue Zeile, damit bestehende Datensätze nicht überschrieben werden
-	public void schreibeDatensätzeinDB() {
+	// Schreibt neuen Kundendatensatz aus Klasse Auftrag in neue Zeile, damit bestehende DatensÃ¤tze nicht Ã¼berschrieben werden
+	public void schreibeDatensÃ¤tzeinDB() {
         try {
         	Auftrag auftrag = new Auftrag();
         	Abrechnung abrechnung = new Abrechnung();
-        	Path filePath = Paths.get("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv");
+        	Path filePath = Paths.get("Kunden.csv");
 	        
 	        StringBuilder stringBuilder = new StringBuilder();
 	        stringBuilder.append(auftrag.getName());
@@ -86,7 +86,7 @@ public class Datenbank {
 	// liest testweise zuvor erstellte CSV-Datei aus
     public void readCSVFile(){
         List<List<String>> records = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv"))) {
+        try (Scanner scanner = new Scanner(new File("Kunden.csv"))) {
             while (scanner.hasNextLine()) {
                 records.add(getRecordFromLine(scanner.nextLine()));
             }
@@ -96,7 +96,7 @@ public class Datenbank {
         System.out.println(records.toString());
     }
     
-    // scannt Werte aus CSV und speichert sie in ArrayList. Wird in Methode readCSVFile benötigt und aufgerufen
+    // scannt Werte aus CSV und speichert sie in ArrayList. Wird in Methode readCSVFile benÃ¶tigt und aufgerufen
     private List<String> getRecordFromLine(String line) {
         List<String> values = new ArrayList<String>();
         try (Scanner rowScanner = new Scanner(line)) {
@@ -110,9 +110,9 @@ public class Datenbank {
     }
     
     /*
-    // Methode prüft, ob definierte Datei existiert
+    // Methode prÃ¼ft, ob definierte Datei existiert
     public boolean checkIfCSVExists() {
-    	File file = new File("C:\\Users\\mathias.oertlin\\Desktop\\Daten\\Java\\eclipse-workspace\\Diverse Übungen\\src\\Werkstatt\\Kunden.csv");
+    	File file = new File("Kunden.csv");
         if(file.exists() && !file.isDirectory()){
             return true;
         	//System.out.println("File Exists in path:\n" + file);
