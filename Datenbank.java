@@ -24,7 +24,7 @@ public class Datenbank {
 	public void erstelleCSVFile() {
 		// Festlegen des Speicherorts
 		File file = new File("Kunden.csv");
-        // Prüfen, ob DB vorhanden ist. Falls nein, dann neue DB erstellen und Spaltenbezeichnungen in erste Zeile schreiben
+        	// Prüfen, ob DB vorhanden ist. Falls nein, dann neue DB erstellen und Spaltenbezeichnungen in erste Zeile schreiben
 		if(!file.exists() && !file.isDirectory()){
         	try (PrintWriter writer = new PrintWriter(new File("Kunden.csv"))) {
     			StringBuilder sb = new StringBuilder();
